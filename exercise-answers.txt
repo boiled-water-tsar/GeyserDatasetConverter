@@ -1,0 +1,43 @@
+# Data Parsing Exercise Answers
+
+## Exercise 1
+
+Very interesting exercise! I struggled a bit with myself over how much error correction I should include,
+and the ever present issue of float precision rears its ugly head.
+Another solution could have been to just leave them, since it's eruption in minutes being close enough
+is probably ok.
+Alternatively the floats could be written as strings which is a popular approach to
+this issue. Of course this just pushes the issue of what to do further down the line.
+
+Alternatively / alternatively: Try and wrangle the AVRO systems Decimal type.
+This is ultimately the approach I ended up with as it both parses the values
+for future users down the line and keeps their precision.
+
+I must admit, I had a lot of fun with this.
+
+To run the program: Simply run main.py. It's easiest to run from the directory containing
+the unfaithful dataset but as an option you can provide the path for the dataset.
+I have included defaults that should work as long as main.py and unfaithful.csv are in the same directory
+
+Alternatively run it with Docker with this one command: docker run --rm -it $(docker build -q .)
+
+## Exercise 2
+
+My favorite James Bond movie gotta be Goldfinger.
+The performances are excellent, and you can feel the villain just chewing up the scenery.
+Of course watching this movie in 2023 you have to accept it was made in a different time and
+portrays what was normal at the time.
+
+I used CyberChef for poking around with this text string.
+
+Since text string was originally base64 and base64 is lossless you can do some fun things like say:
+The answer to the question is R29sZGZpbmdlci.
+Or do a bit of maliciousness and replace all the encoded Goldfingers with something else so the list never
+contains my favorite movie.
+
+## Exercise 3
+
+A neat and cute thing. Essentially it just prints the number 3
+
+cat retrieves all the text from the file, which is then piped to grep which searches for the pattern ## pattern in text, those three lines are when piped straight to the counting program which is tasked with counting new lines.
+One thing that struck me is that the cat command is redundant. grep -E ^[#]{2} exercise.txt | wc -l does the trick. Another approach is just strait up grep only. grep -E -c ^[#]{2} exercise.txt gives out the same result and is just the one program.

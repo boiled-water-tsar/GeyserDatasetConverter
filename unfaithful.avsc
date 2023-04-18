@@ -1,0 +1,15 @@
+{"namespace": "unfaithful.avsc",
+  "type": "record",
+  "name": "Unfaithful",
+  "fields": [
+    {"name": "index", "type": ["int", "string"]},
+    {"name": "eruption_length_mins", "type": [{
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 4,
+        "scale": 3
+      }, "string"]},
+    {"name": "eruption_wait_mins", "type": ["int", "string"]},
+    {"name": "error", "type": "boolean"}
+  ]
+}
